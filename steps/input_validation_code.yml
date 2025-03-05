@@ -18,12 +18,12 @@ startFlow:
           - text: >
               ```python
 
-              
+
               import re
 
               def sanitize_user_input(user_input):
                   """Cleanse user input to prevent injection attacks."""
-                  pattern = r"(?i)\b(select|update|delete|insert|drop|alter)\b|--|;|'|"|\\"
+                  pattern = r'(?i)(select|update|delete|insert|drop|alter)'
                   sanitized = re.sub(pattern, "", user_input)
                   return sanitized
               ```

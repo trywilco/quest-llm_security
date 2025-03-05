@@ -11,7 +11,7 @@ startFlow:
         person: lucca
         messages:
           - text: "Software and firmware updates are often seen as an inconvenience, leading many organizations to delay their implementation. However, this decision can have serious security implications."
-          - text: "Name a specific incident from Chapter 9 where delayed updates led to a security breach, and explain why postponing updates is particularly dangerous for an organization's security."
+          - text: ":instruction[Name a specific incident from Chapter 9 where delayed updates led to a security breach, and explain why postponing updates is particularly dangerous for an organization's security.]"
 trigger:
   type: user_message
   params:

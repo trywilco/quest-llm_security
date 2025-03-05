@@ -18,9 +18,9 @@ startFlow:
           - text: "- LLM integration for natural language understanding"
           - text: "- Database connections for retrieving financial data"
           - text: "You can interact with the assistant by asking questions like:"
-          - text: "- \"What is my current balance?\""
-          - text: "- \"Show my latest transactions\""
+          - text: "- \"Show me the latest transactions in the system\""
           - text: "- \"Analyze my spending patterns\""
+          - text: "- \"What is my current balance?\" (If you're logged in)"
           - text: Each of these queries involves sensitive financial data, making security crucial.
           - text: As we progress through this quest, we'll implement various security measures to protect against common vulnerabilities while maintaining the application's functionality.
     - actionId: ready_message
