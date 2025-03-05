@@ -1,0 +1,49 @@
+id: output_filtering_code
+learningObjectives:
+  - Implement output filtering to ensure safe LLM outputs.
+hints:
+  - See Chapter 7 for guidance on output filtering strategies.
+  - Consult Chapter 11 for deploying safety measures like output filtering.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Now let’s enforce output filtering to maintain safe LLM outputs.
+          - text: Wilson emphasizes the criticality of this in Chapter 7 to prevent
+              sensitive or inappropriate content from reaching users.
+          - text: "You can leverage sentiment analysis for filtering:"
+          - text: >
+              
+              ```python
+
+              from transformers import pipeline
+
+
+              sentiment_analyzer = pipeline("sentiment-analysis")
+
+
+              def context_filter(response):
+                  """Analyze and filter response based on sentiment or keywords."""
+                  analysis = sentiment_analyzer(response)
+                  for result in analysis:
+                      if result['label'] == 'NEGATIVE' and result['score'] > 0.75:
+                          return "[Filtered due to negative sentiment]"
+                  return response
+              ```
+          - text: Incorporate this function to check and regulate output sentiments.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
+    switch:
+      key: ${eventType}
+      cases:
+        github_pr_merged:
+          do:
+            - actionId: finish_step

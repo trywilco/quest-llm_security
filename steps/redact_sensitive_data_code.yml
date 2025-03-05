@@ -1,0 +1,59 @@
+id: redact_sensitive_data_code
+learningObjectives:
+  - Implement data redaction techniques to secure data handling.
+hints:
+  - Chapter 5 discusses the risks of sensitive data exposure and redaction.
+  - Refer to regex strategies in Chapter 9.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Finally, implement data redaction to safeguard sensitive data accessed by
+              LLMs.
+          - text: Wilson in Chapter 5 underscores using regex for comprehensive data
+              collision avoidance.
+          - text: "Here's how to redact sensitive information in your data:"
+          - text: >
+              
+              ```python
+
+              import re
+
+
+              def redact_sensitive_db_data(data):
+                  """Redact sensitive information from data retrievals."""
+                  patterns = {
+                      "email": r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b",
+                      "credit_card": r"\b\d{4}(?:[ -]\d{4}){3}\b"
+                  }
+
+                  for pattern in patterns.values():
+                      data = re.sub(pattern, "[REDACTED]", data)
+
+                  return data
+
+              example_data = "User email: example@example.com, CC: 1234 5678 9123 4567"
+
+              print(redact_sensitive_db_data(example_data))
+
+              # Output: "User email: [REDACTED], CC: [REDACTED]"
+
+              ```
+          - text: Use this as part of your database interactions to prevent informational
+              leaks.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
+    switch:
+      key: ${eventType}
+      cases:
+        github_pr_merged:
+          do:
+            - actionId: finish_step

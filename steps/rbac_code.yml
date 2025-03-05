@@ -1,0 +1,65 @@
+id: rbac_code
+learningObjectives:
+  - Apply role-based access control using JWT.
+hints:
+  - Check Chapter 8 for strategies using JWT for access control.
+  - Explore Chapter 11 for tips on security integration in LLMs.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Next, we'll secure your application by implementing role-based access
+              control (RBAC).
+          - text: This is a way to restrict system access to authorized users, discussed in
+              Chapter 8.
+          - text: "Here's how you can integrate JSON Web Tokens (JWT) to implement RBAC in
+              FastAPI:"
+          - text: >
+              
+              ```python
+
+              from fastapi import Request, HTTPException, Security
+
+              from fastapi.security import HTTPBearer
+
+              import jwt
+
+
+              security = HTTPBearer()
+
+
+              SECRET_KEY = "your_secret_key"
+
+
+              def jwt_decode(token):
+                  """Decode JWT token."""
+                  try:
+                      return jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+                  except jwt.PyJWTError:
+                      raise HTTPException(status_code=403, detail="Token is invalid")
+
+              async def role_based_access(request: Request, token: str = Security(security)):
+                  """Check user's role via JWT token."""
+                  payload = jwt_decode(token.credentials)
+                  user_role = payload.get('role')
+                  if user_role not in ['admin', 'user']:
+                      raise HTTPException(status_code=403, detail="Insufficient permissions")
+                  return user_role
+              ```
+          - text: Implement these changes to safeguard your endpoints based on user roles.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
+    switch:
+      key: ${eventType}
+      cases:
+        github_pr_merged:
+          do:
+            - actionId: finish_step

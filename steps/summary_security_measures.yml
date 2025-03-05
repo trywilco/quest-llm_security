@@ -1,0 +1,41 @@
+id: summary_security_measures
+learningObjectives:
+  - Review and reinforce key security measures learned.
+hints:
+  - Chapter 1 and 11 summarize key security strategies covered.
+  - Reflect on the comprehensive approach presented through the Playbook to
+    secure LLM applications.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: In this quest, we've explored the critical components of securing Large
+              Language Models, leveraging insights from Steve Wilson's Playbook.
+          - text: You've learned about input validation, RBAC, filtering outputs, and
+              detecting adversarial inputs—all essential for creating secure
+              environments.
+          - text: The emphasis on zero trust and real-time monitoring reinforces the need
+              for continuous vigilance in modern security frameworks.
+          - text: Remember, applying these practices not only secures applications but also
+              builds trust with users through responsible data handling and
+              robust security protocols.
+          - text: Continue to refine these skills and stay informed about emerging threats
+              and solutions in the field of application security.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: bot_message
+        params:
+          person: lucca
+          messages:
+            - text: "Congratulations on completing the \"Securing LLMs: A Developer's Guide\"
+                quest! You're now equipped with advanced skills to protect
+                LLM-driven applications. Remember, security is a journey, not a
+                destination. Keep exploring and securing!"
+      - actionId: finish_step
