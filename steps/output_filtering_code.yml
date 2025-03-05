@@ -1,5 +1,6 @@
 id: output_filtering_code
-learningObjective: Implement output filtering to ensure safe LLM outputs
+learningObjectives: 
+  - Implement output filtering to ensure safe LLM outputs
 hints:
   - See Chapter 7 for guidance on output filtering strategies.
   - Consult Chapter 11 for deploying safety measures like output filtering.
