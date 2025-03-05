@@ -22,11 +22,12 @@ skills:
   - fastapi
 steps:
   - intro_to_llm_security
+  - explain_app_overview
   - input_validation_code
   - rbac_code
   - open_question_roles_explanation
+  - logging_and_monitoring_code
   - output_filtering_code
-  - detect_adversarial_inputs_code
   - redact_sensitive_data_code
   - final_quiz_security_concepts
   - summary_security_measures

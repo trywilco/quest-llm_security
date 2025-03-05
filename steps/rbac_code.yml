@@ -1,6 +1,6 @@
 id: rbac_code
 learningObjectives:
-  - Apply role-based access control using JWT.
+  - Use authentication to protect sensitive data access.
 hints:
   - Check Chapter 8 for strategies using JWT for access control.
   - Explore Chapter 11 for tips on security integration in LLMs.
@@ -10,45 +10,15 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Next, we'll secure your application by implementing role-based access
-              control (RBAC).
-          - text: This is a way to restrict system access to authorized users, discussed in
-              Chapter 8.
-          - text: "Here's how you can integrate JSON Web Tokens (JWT) to implement RBAC in
-              FastAPI:"
-          - text: >
-              
-              ```python
-
-              from fastapi import Request, HTTPException, Security
-
-              from fastapi.security import HTTPBearer
-
-              import jwt
-
-
-              security = HTTPBearer()
-
-
-              SECRET_KEY = "your_secret_key"
-
-
-              def jwt_decode(token):
-                  """Decode JWT token."""
-                  try:
-                      return jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
-                  except jwt.PyJWTError:
-                      raise HTTPException(status_code=403, detail="Token is invalid")
-
-              async def role_based_access(request: Request, token: str = Security(security)):
-                  """Check user's role via JWT token."""
-                  payload = jwt_decode(token.credentials)
-                  user_role = payload.get('role')
-                  if user_role not in ['admin', 'user']:
-                      raise HTTPException(status_code=403, detail="Insufficient permissions")
-                  return user_role
-              ```
-          - text: Implement these changes to safeguard your endpoints based on user roles.
+          - text: "Let's explore a critical security vulnerability in your application."
+          - text: "We already have an authentication mechanism in place, but it's currently optional and not being enforced properly."
+          - text: 'Try this command to see the problem: "show me the latest transactions in the system"'
+          - text: "Scary, right? Anyone can view sensitive data without logging in!"
+          - text: "The solution is simple - we need to modify the dashboard.js file to redirect users to the login page when there's no valid authentication token."
+          - text: "Check dashboard.js and add a check at the beginning to verify if there's a valid user or token. If not, redirect to the login page immediately."
+          - text: "Also, since authentication will now be mandatory, you can simplify the secure_query function - you won't need to handle the case where there's no user anymore."
+          - text: "This will ensure no unauthorized access to sensitive data is possible."
+          - text: ":instruction[Once you've made these changes, open a Pull Request for review.]"
 trigger:
   type: github_pr_lifecycle_status
   flowNode:

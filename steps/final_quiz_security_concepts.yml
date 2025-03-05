@@ -10,17 +10,22 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Which of the following best describes the zero trust principle in LLM
-              security?
-          - text: Select the most accurate description based on what you've learned.
+          - text: "You've implemented several security measures: input validation, logging, redaction, and output filtering. These all contribute to a broader security philosophy called 'zero trust'."
+          - text: "In LLM applications, this principle is particularly critical because:"
+          - text: "- LLMs can access vast amounts of sensitive data"
+          - text: "- Inputs and outputs need constant validation"
+          - text: "- Security boundaries are more complex than traditional applications"
+          - text: "Let's test your understanding of this crucial concept."
+          - text: Which of the following best describes the zero trust principle in LLM security?
+          - text: Select the most accurate description based on what you've learned and implemented.
     - actionId: quiz_message
       name: quiz
       params:
         person: lucca
         options:
-          - Never trust, always verify
-          - Trust known networks and users implicitly
-          - Rely solely on perimeter security measures
+          - Never trust, always verify - each interaction with the LLM requires validation
+          - Trust known networks and users implicitly to improve performance
+          - Rely solely on perimeter security measures for LLM protection
 trigger:
   type: chat_form_submitted
   flowNode:

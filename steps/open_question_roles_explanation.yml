@@ -1,19 +1,17 @@
 id: open_question_roles_explanation
 learningObjectives:
-  - Reflect on the importance of role-based access control in LLM security.
+  - Explore the implications of update delay.
 hints:
-  - Chapter 8 discusses the importance of RBAC in ensuring user-specific access
-    control.
-  - Wilson emphasizes understanding user roles and permissions in Chapter 11.
+  - Think about the time gap between a vulnerability being discovered and a patch being applied. What happens during this period?
+  - Remember the Equifax breach from Chapter 9 - they delayed a critical Apache Struts update by two months. What was the result?
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: lucca
         messages:
-          - text: Explain why implementing role-based access control (RBAC) is critical in
-              an LLM environment and how it enhances overall security.
-          - text: Provide your insights or examples based on your experience.
+          - text: "Software and firmware updates are often seen as an inconvenience, leading many organizations to delay their implementation. However, this decision can have serious security implications."
+          - text: "Name a specific incident from Chapter 9 where delayed updates led to a security breach, and explain why postponing updates is particularly dangerous for an organization's security."
 trigger:
   type: user_message
   params:
@@ -24,54 +22,36 @@ trigger:
         name: user_answer
         params:
           prompt: "
-
             \    Please evaluate the user's answer in relation to
-            the expected answer: The answer should include the necessity of RBAC
-            for controlled access and role-based permission management to
-            enhance security..
-
+            the expected answer: An effective answer should include two key elements:
+            1) A specific security incident from Chapter 9 where update delays played a role (such as Equifax)
+            2) An explanation of why delays are dangerous (e.g., giving attackers time to exploit known vulnerabilities)
             \    # Assessment Criteria
-
-            \    - Determine if the user's response demonstrates a
-            clear understanding of the key concepts and ideas presented in the
-            expected answer.
-
+            \    - Check if the user names a specific incident
+            \    - Verify they explain the security implications of delays
+            \    - The explanation should show understanding of cause and effect
             \    - Consider synonyms, paraphrasing, and different
             phrasing that convey the same meaning.
-
             \    - Be flexible and focus on the essence of the
             answer rather than exact wording.
-
             \ \ 
-
             \    # Response Guidelines:
-
             \    - If the user's answer is correct or shows
             sufficient understanding, return 'correct: true'.
-
             \      - Provide a positive and affirming message,
             congratulating them and reinforcing their understanding.
-
             \    - If the user's answer is incorrect or incomplete,
             return 'correct: false'.
-
             \      - Gently explain why the answer is not fully
             correct or what may be missing.
-
             \      - Encourage them to try again, being empathetic
             and supportive.
-
             \ \ 
-
             \    # Tone and Style:
-
             \    - Use friendly and encouraging language.
-
             \    - Be empathetic to the user's learning process.
-
             \    - Focus on helping the user learn and understand
             the material.
-
             \  "
           schema:
             correct: boolean

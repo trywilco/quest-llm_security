@@ -10,7 +10,7 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Welcome to the quest on securing Large Language Models! These models,
+          - text: Welcome to the quest on **securing Large Language Models!** These models,
               while immensely powerful, present unique security challenges.
           - text: Understanding and managing these challenges are crucial for maintaining
               data integrity and preventing security breaches.

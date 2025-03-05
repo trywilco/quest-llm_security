@@ -14,28 +14,19 @@ startFlow:
               attacks—a critical safeguard for your LLM application.
           - text: According to Wilson in Chapter 5, strict criteria for inputs are essential
               to prevent SQL injection attacks.
-          - text: "Here's an example of sanitizing inputs using Python:"
+          - text: "Here's an example of sanitizing inputs:"
           - text: >
-              
               ```python
 
               import re
-
-
               def sanitize_user_input(user_input):
                   """Cleanse user input to prevent injection attacks."""
                   pattern = r"(?i)\b(select|update|delete|insert|drop|alter)\b|--|;|'|"|\\"
                   sanitized = re.sub(pattern, "", user_input)
                   return sanitized
-
-              user_input = "SELECT * FROM users;"
-
-              print(sanitize_user_input(user_input))
-
-              # Output: " * FROM users"
-
               ```
           - text: Implement this function in your application to safeguard user inputs.
+          - text: Once you've implemented the input validation, :instruction[open a pull request for review].
 trigger:
   type: github_pr_lifecycle_status
   flowNode:

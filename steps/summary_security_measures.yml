@@ -11,18 +11,16 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: In this quest, we've explored the critical components of securing Large
-              Language Models, leveraging insights from Steve Wilson's Playbook.
-          - text: You've learned about input validation, RBAC, filtering outputs, and
-              detecting adversarial inputs—all essential for creating secure
-              environments.
-          - text: The emphasis on zero trust and real-time monitoring reinforces the need
-              for continuous vigilance in modern security frameworks.
-          - text: Remember, applying these practices not only secures applications but also
-              builds trust with users through responsible data handling and
-              robust security protocols.
-          - text: Continue to refine these skills and stay informed about emerging threats
-              and solutions in the field of application security.
+          - text: "Impressive work! You've tackled some of the most challenging aspects of LLM security - no small feat! 🌟"
+          - text: "In this quest, we've explored the critical components of securing Large Language Models, leveraging insights from Steve Wilson's Playbook. Let's celebrate what you've implemented:"
+          - text: "1. Input Validation: You added sanitization to prevent SQL injection and other malicious inputs"
+          - text: "2. Access Control: You implemented role-based security to protect sensitive operations"
+          - text: "3. Logging System: You set up request/response logging to maintain an audit trail"
+          - text: "4. Output Filtering: You added sentiment analysis to prevent harmful content"
+          - text: "5. Data Redaction: You implemented pattern matching to protect sensitive information like credit cards and SSNs"
+          - text: "That's five robust security layers - each one critical, and you nailed them all! 🎯"
+          - text: "These layered security measures form a comprehensive defense strategy, aligned with Wilson's zero trust philosophy."
+          - text: "You should be proud of mastering these advanced security concepts. Remember - security is continuous. Keep monitoring logs, updating patterns, and staying informed about new LLM security challenges. You've got this! 💪"
     - actionId: ready_message
       params:
         person: lucca
@@ -34,8 +32,5 @@ trigger:
         params:
           person: lucca
           messages:
-            - text: "Congratulations on completing the \"Securing LLMs: A Developer's Guide\"
-                quest! You're now equipped with advanced skills to protect
-                LLM-driven applications. Remember, security is a journey, not a
-                destination. Keep exploring and securing!"
+            - text: "Congratulations on completing \"Securing LLMs: A Developer's Guide\"! You're now equipped with advanced skills to protect LLM-driven applications. Remember, security is a journey, not a destination - keep exploring and securing!"
       - actionId: finish_step

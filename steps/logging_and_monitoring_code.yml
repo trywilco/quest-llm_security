@@ -1,0 +1,37 @@
+id: logging_and_monitoring_code
+learningObjectives:
+  - Implement effective logging and monitoring practices in LLM applications.
+hints:
+  - See Chapter 10 for guidance on logging and monitoring systems.
+  - Use the existing logger instance in your LLM service
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Let's add logging to track and audit LLM interactions. This is crucial for security because it helps us:"
+          - text: "- Detect potential prompt injection attacks"
+          - text: "- Identify misuse patterns"
+          - text: "- Investigate security incidents"
+          - text: "- Maintain compliance with security requirements"
+          - text: Wilson emphasizes in Chapter 10 that proper logging is your first line of defense in understanding and responding to security incidents.
+          - text: "Using the existing logger in your service, add two simple but essential log statements:"
+          - text: "1. Log the user's prompt before sending it to the LLM - this helps track potential malicious inputs"
+          - text: "2. Log the LLM's response before returning it - this helps identify if sensitive information was leaked"
+          - text: Use `logger.info()` for both logging statements to create an audit trail of all LLM interactions.
+          - text: Once you've added the logging statements, :instruction[submit your changes in a pull request.] We'll review it right away so you can move forward with securing your LLM application!
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca
+    switch:
+      key: ${eventType}
+      cases:
+        github_pr_merged:
+          do:
+            - actionId: finish_step
