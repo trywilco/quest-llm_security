@@ -21,9 +21,9 @@ startFlow:
               def redact_sensitive_data(self, text):
                   """Redact sensitive information from text."""
                   patterns = {
-                      'credit_card': r'\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b',
-                      'ssn': r'\b\d{3}[-\s]?\d{2}[-\s]?\d{4}\b',
-                      'email': r'\b[\w\.-]+@[\w\.-]+\.\w+\b'
+                      'credit_card': r'\\b\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}\\b',
+                      'ssn': r'\\b\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}\\b',
+                      'email': r'\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w+\\b'
                   }
                   
                   for key, pattern in patterns.items():
