@@ -17,7 +17,7 @@ startFlow:
               
               ```python
 
-              
+
               def context_filter(self, response):
                   """Analyze and filter response based on sentiment or keywords."""
                   analysis = sentiment_analyzer(response)
@@ -36,9 +36,3 @@ trigger:
         params:
           messages:
             person: lucca
-    switch:
-      key: ${eventType}
-      cases:
-        github_pr_merged:
-          do:
-            - actionId: finish_step

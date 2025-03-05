@@ -17,7 +17,7 @@ startFlow:
           - text: >
               ```python
 
-              
+
               def redact_sensitive_data(self, text):
                   """Redact sensitive information from text."""
                   patterns = {
@@ -40,9 +40,3 @@ trigger:
         params:
           messages:
             person: lucca
-    switch:
-      key: ${eventType}
-      cases:
-        github_pr_merged:
-          do:
-            - actionId: finish_step

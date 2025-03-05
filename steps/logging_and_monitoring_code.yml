@@ -29,9 +29,3 @@ trigger:
         params:
           messages:
             person: lucca
-    switch:
-      key: ${eventType}
-      cases:
-        github_pr_merged:
-          do:
-            - actionId: finish_step
