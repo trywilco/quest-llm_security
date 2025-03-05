@@ -25,6 +25,10 @@ trigger:
     do:
       - actionId: github_pr_review
         params:
-          solution: User need to mainly update the `dashboard.js` file to redirect users to the login page when there's no valid authentication token. They can also simplify the `secure_query` function since authentication will now be mandatory, but don't need to be picky about this part.
+          solution: >
+            User need to mainly update the `dashboard.js` file to redirect users to the login page.
+            The existing code already handles tokens, simply change the else part when checking if token exists from setting Guest/Login text to redirecting with `window.location.href = '/login'` or similar redirect code.
+            They can also simplify the `secure_query` function since authentication will now be mandatory, but don't need to be picky about this part.
+            The most important part is not to be too strict about the code changes, you can approve if the user has made an effort to redirect users to the login page.
           messages:
             person: lucca
