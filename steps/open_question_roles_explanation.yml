@@ -24,7 +24,7 @@ trigger:
           prompt: "
             \    Please evaluate the user's answer in relation to
             the expected answer: An effective answer should include two key elements:
-            1) A specific security incident from Chapter 9 where update delays played a role (such as Equifax)
+            1) A specific security incident from Chapter 9 where update delays played a role (such as Equifax, SolarWinds, Log4j and others)
             2) An explanation of why delays are dangerous (e.g., giving attackers time to exploit known vulnerabilities)
             \    # Assessment Criteria
             \    - Check if the user names a specific incident

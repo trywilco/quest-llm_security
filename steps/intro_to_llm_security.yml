@@ -10,11 +10,11 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Welcome to the quest on **securing Large Language Models!** These models,
+          - text: Welcome to the quest on **Securing Large Language Models!** These models,
               while immensely powerful, present unique security challenges.
           - text: Understanding and managing these challenges are crucial for maintaining
               data integrity and preventing security breaches.
-          - text: According to Steve Wilson's Playbook, LLM applications face risks such as
+          - text: According to **Steve Wilson's Playbook**, LLM applications face risks such as
               injection attacks and sensitive data exposure, particularly
               emphasized in Chapter 1.
           - text: We'll delve into these risks and highlight strategies for securing your

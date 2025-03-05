@@ -16,6 +16,8 @@ startFlow:
           - text: "Let's address this immediately. Below is a redaction pattern designed to catch common types of sensitive data:"
           - text: >
               ```python
+
+              
               def redact_sensitive_data(self, text):
                   """Redact sensitive information from text."""
                   patterns = {

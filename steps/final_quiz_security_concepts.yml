@@ -10,7 +10,7 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: "You've implemented several security measures: input validation, logging, redaction, and output filtering. These all contribute to a broader security philosophy called 'zero trust'."
+          - text: "You've implemented several security measures: input validation, logging, redaction, and output filtering. These all contribute to a broader security philosophy called `zero trust`."
           - text: "In LLM applications, this principle is particularly critical because:"
           - text: "- LLMs can access vast amounts of sensitive data"
           - text: "- Inputs and outputs need constant validation"
