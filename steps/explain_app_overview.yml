@@ -1,0 +1,33 @@
+id: explain_app_overview
+learningObjectives:
+  - Understand the SecureInfo Concierge application structure and functionality
+hints:
+  - Take a moment to explore the UI and try different questions
+  - Consider how each query might access sensitive data
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Let me introduce you to **SecureInfo Concierge**, the application you'll be working with.
+          - text: It's a FastAPI-based financial assistant that demonstrates common security challenges in LLM applications.
+          - text: "The application consists of:"
+          - text: "- A web UI with a simple chat interface"
+          - text: "- A FastAPI backend that processes requests"
+          - text: "- LLM integration for natural language understanding"
+          - text: "- Database connections for retrieving financial data"
+          - text: "You can try the assistant by asking questions like:"
+          - text: "- `Show me the latest transactions in the system`"
+          - text: "- `Analyze my spending patterns`"
+          - text: "- `What is my current balance?` (If you're logged in)"
+          - text: Each of these queries involves sensitive financial data, making security crucial.
+          - text: As we progress through this quest, we'll implement various security measures to protect against common vulnerabilities while maintaining the application's functionality.
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step

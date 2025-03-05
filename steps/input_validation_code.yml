@@ -1,0 +1,39 @@
+id: input_validation_code
+learningObjectives:
+  - Implement input validation to prevent injection attacks.
+hints:
+  - Refer to Chapter 5 on vulnerabilities through input processing.
+  - Look at Chapter 9 for strategies in managing input validation risks.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: Let's start by implementing input validation to prevent potential injection
+              attacks—a critical safeguard for your LLM application.
+          - text: According to Wilson in Chapter 5, strict criteria for inputs are essential
+              to prevent SQL injection attacks.
+          - text: "Here's an example of sanitizing inputs:"
+          - text: >
+              ```python
+
+
+              import re
+
+              def sanitize_user_input(user_input):
+                  """Cleanse user input to prevent injection attacks."""
+                  pattern = r'(?i)(select|update|delete|insert|drop|alter)'
+                  sanitized = re.sub(pattern, "", user_input)
+                  return sanitized
+              ```
+          - text: Implement this function in your application to safeguard user inputs.
+          - text: Once you've implemented the input validation, :instruction[open a pull request for review].
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca

@@ -1,0 +1,37 @@
+id: llm_security_quest
+title: "Securing LLMs: A Developer's Guide"
+subtitle: Enhance LLM applications with robust security measures
+description: >-
+  Dive into securing Large Language Models (LLMs) as we explore ways to protect
+  these advanced systems from vulnerabilities. In this quest, based on "The
+  Developer's Playbook for Large Language Model Security" by Steve Wilson,
+  you'll learn to safeguard against risks such as injection attacks and
+  sensitive data leakage while implementing robust security protocols.
+
+  Throughout the quest, you'll work hands-on with a FastAPI application to implement role-based access control, sanitize inputs, and apply zero trust principles, enhancing your application with best practices to mitigate various threats. You'll also engage in discussions and quizzes to deepen your understanding of concepts like guardrails and adversarial inputs.
+
+  By the end of this quest, you'll possess a comprehensive toolkit to fortify LLM-driven applications against an evolving threat landscape, learning from real-world cases and cutting-edge security innovations highlighted in Wilson's book.
+level: advance
+duration: 2
+skills:
+  - application security
+  - large language models
+  - security protocols
+  - data protection
+  - cybersecurity
+  - fastapi
+steps:
+  - intro_to_llm_security
+  - explain_app_overview
+  - input_validation_code
+  - rbac_code
+  - open_question_roles_explanation
+  - logging_and_monitoring_code
+  - redact_sensitive_data_code
+  - output_filtering_code
+  - final_quiz_security_concepts
+  - summary_security_measures
+type: MODULE
+repository: https://github.com/trywilco/secure-info-concierge
+frameworks:
+  backend: null

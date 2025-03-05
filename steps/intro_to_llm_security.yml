@@ -1,0 +1,31 @@
+id: intro_to_llm_security
+learningObjectives:
+  - Understand the importance and challenges of securing LLMs.
+hints:
+  - Check out Chapter 1 for foundational security concepts related to LLMs.
+  - See Chapter 4 for examples of prompt injection vulnerabilities.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "![](${book.jpeg})"
+          - text: Welcome to the quest on **Securing Large Language Models!** These models,
+              while immensely powerful, present unique security challenges.
+          - text: Understanding and managing these challenges is crucial for maintaining
+              data integrity and preventing security breaches.
+          - text: According to **Steve Wilson's Playbook**, LLM applications face risks such as
+              injection attacks and sensitive data exposure, particularly
+              emphasized in Chapter 1.
+          - text: We'll delve into these risks and highlight strategies for securing your
+              LLM-powered applications. Ready to dive in? Let's begin when
+              you're ready!
+    - actionId: ready_message
+      params:
+        person: lucca
+trigger:
+  type: user_ready_response
+  flowNode:
+    do:
+      - actionId: finish_step

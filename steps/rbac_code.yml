@@ -1,0 +1,34 @@
+id: rbac_code
+learningObjectives:
+  - Use authentication to protect sensitive data access.
+hints:
+  - Chapter 8 has tactics for using JWT for access control.
+  - Explore Chapter 11 for tips on security integration in LLMs.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Let's explore a critical security vulnerability in your application."
+          - text: "We already have an authentication mechanism in place, but it's currently optional and not being enforced properly."
+          - text: 'Try this command to see the problem: `show me the latest transactions in the system`'
+          - text: "Scary, right? Anyone can view sensitive data without logging in!"
+          - text: "The solution is simple - we need to modify the `dashboard.js` file to redirect users to the login page when there's no valid authentication token."
+          - text: "Add a check at the beginning of dashboard.js to verify if there's a valid user or token. If not, redirect to the login page immediately."
+          - text: "This will ensure no unauthorized access to sensitive data is possible."
+          - text: "Also, since authentication will now be mandatory, you can simplify the `secure_query` function - you won't need to handle the case where there's no user anymore."
+          - text: ":instruction[Once you've made these changes, open a Pull Request for review.]"
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          solution: >
+            The user needs to mainly update the `dashboard.js` file to redirect users to the login page.
+            The existing code already handles tokens, simply change the else branch when checking if a token exists: from setting Guest/Login text to redirecting with `window.location.href = '/login'` or similar redirect code.
+            They can also simplify the `secure_query` function since authentication will now be mandatory, but you don't need to be picky about this part.
+            The most important part is not to be too strict about the code changes, you can approve if the user has made an effort to redirect users to the login page.
+          messages:
+            person: lucca

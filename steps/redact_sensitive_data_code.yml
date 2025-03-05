@@ -1,0 +1,40 @@
+id: redact_sensitive_data_code
+learningObjectives:
+  - Implement data redaction techniques to secure data handling.
+hints:
+  - Chapter 5 discusses the risks of sensitive data exposure and redaction.
+  - Refer to regex strategies in Chapter 9.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "**URGENT**: We've discovered that our LLM inadvertently leaked a credit card number when a user asked `what is my account?`. 😱"
+          - text: "**Don't worry** - it was strictly in a controlled environment, highlighting how easily sensitive data can slip through if not properly handled. When queried about customer records, the LLM revealed sensitive information due to lack of proper output filtering."
+          - text: "According to Wilson's research in Chapter 5, sensitive information disclosure is a significant risk in LLM applications, often leading to serious data breaches."
+          - text: "Let's address this immediately. Below is a redaction pattern designed to catch common types of sensitive data:"
+          - text: |
+              ```python
+              def redact_sensitive_data(self, text):
+                  """Redact sensitive information from text."""
+                  patterns = {
+                    'credit_card': r'...',
+                    'email': r'...'
+                  }
+                  
+                  for key, pattern in patterns.items():
+                      text = re.sub(pattern, f'[REDACTED {key}]', text)
+                  return text
+              ```
+          - text: Add this method and call it on every LLM response. We need this in place ASAP!
+          - text: "If you need help with Python regex patterns, feel free to ask - I can help ensure we catch all sensitive data patterns. 😊"
+          - text: :instruction[Open a pull request] with your changes and we'll review it right away.
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          messages:
+            person: lucca

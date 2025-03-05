@@ -1,0 +1,65 @@
+id: final_quiz_security_concepts
+learningObjectives:
+  - Consolidate your knowledge of LLM security threats and defenses.
+hints:
+  - Review Chapter 7 to understand zero trust in LLM contexts.
+  - Chapter 8 provides insights on comprehensive security frameworks.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "You've implemented several security measures: input validation, logging, redaction, and output filtering. These all contribute to a broader security philosophy called `zero trust`."
+          - text: "In LLM applications, this principle is particularly critical because:"
+          - text: "- LLMs can access vast amounts of sensitive data"
+          - text: "- Inputs and outputs need constant validation"
+          - text: "- Security boundaries are more complex than traditional applications"
+          - text: "Let's test your understanding of this crucial concept."
+          - text: Which of the following best describes the zero trust principle in LLM security?
+          - text: Select the most accurate description based on what you've learned and implemented.
+    - actionId: quiz_message
+      name: quiz
+      params:
+        person: lucca
+        options:
+          - Never trust, always verify - each interaction with the LLM requires validation
+          - Trust known networks and users implicitly to improve performance
+          - Rely solely on perimeter security measures for LLM protection
+trigger:
+  type: chat_form_submitted
+  flowNode:
+    switch:
+      key: ${formSubmission}
+      cases:
+        A:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Correct! Zero trust means continuous verification of all interactions
+                      regardless of origin, as discussed in Chapter 7.
+            - actionId: finish_step
+        B:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Not quite. The essence of zero trust is to avoid implicit trust, even for
+                      known networks or users.
+            - actionId: replay_action
+              params:
+                actionName: quiz
+        C:
+          do:
+            - actionId: bot_message
+              params:
+                person: lucca
+                messages:
+                  - text: Incorrect. Zero trust involves multiple layers of verification, not just
+                      perimeter security.
+            - actionId: replay_action
+              params:
+                actionName: quiz
