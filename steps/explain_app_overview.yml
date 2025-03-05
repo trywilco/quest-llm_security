@@ -12,12 +12,16 @@ startFlow:
         messages:
           - text: Let me introduce you to **SecureInfo Concierge**, the application you'll be working with.
           - text: It's a FastAPI-based financial assistant that demonstrates common security challenges in LLM applications.
-          - text: The application consists of:
+          - text: >-
+              The application consists of:
+              
               - A web UI with a simple chat interface
               - A FastAPI backend that processes requests
               - LLM integration for natural language understanding
               - Database connections for retrieving financial data
-          - text: You can interact with the assistant by asking questions like:
+          - text: >-
+              You can interact with the assistant by asking questions like:
+              
               - "What is my current balance?"
               - "Show my latest transactions"
               - "Analyze my spending patterns"
