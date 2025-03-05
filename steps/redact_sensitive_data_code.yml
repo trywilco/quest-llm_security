@@ -14,16 +14,14 @@ startFlow:
           - text: "**Don't worry** - it was strictly in a controlled environment, highlighting how easily sensitive data can slip through if not properly handled. When queried about customer records, the LLM revealed sensitive information due to lack of proper output filtering."
           - text: "According to Wilson's research in Chapter 5, sensitive information disclosure is a significant risk in LLM applications, often leading to serious data breaches."
           - text: "Let's address this immediately. Below is a redaction pattern designed to catch common types of sensitive data:"
-          - text: >
+          - text: |
               ```python
-
-
               def redact_sensitive_data(self, text):
                   """Redact sensitive information from text."""
                   patterns = {
-                      'credit_card': r'\\b\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}\\b',
-                      'ssn': r'\\b\\d{3}[-\\s]?\\d{2}[-\\s]?\\d{4}\\b',
-                      'email': r'\\b[\\w\\.-]+@[\\w\\.-]+\\.\\w+\\b'
+                      'credit_card': r'\b\d{4}[-\s]?\d{4}[-\s]?\d{4}[-\s]?\d{4}\b',
+                      'ssn': r'\b\d{3}[-\s]?\d{2}[-\s]?\d{4}\b',
+                      'email': r'\b[\w\.-]+@[\w\.-]+\.\w+\b'
                   }
                   
                   for key, pattern in patterns.items():
