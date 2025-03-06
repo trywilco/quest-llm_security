@@ -12,7 +12,7 @@ startFlow:
         messages:
           - text: Welcome to the quest on **Securing Large Language Models!** These models,
               while immensely powerful, present unique security challenges.
-          - text: Understanding and managing these challenges are crucial for maintaining
+          - text: Understanding and managing these challenges is crucial for maintaining
               data integrity and preventing security breaches.
           - text: According to **Steve Wilson's Playbook**, LLM applications face risks such as
               injection attacks and sensitive data exposure, particularly
