@@ -10,7 +10,7 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: "**URGENT**: We've discovered that our LLM inadvertently leaked a credit card number when a user ask `what is my account?`. 😱"
+          - text: "**URGENT**: We've discovered that our LLM inadvertently leaked a credit card number when a user asked `what is my account?`. 😱"
           - text: "**Don't worry** - it was strictly in a controlled environment, highlighting how easily sensitive data can slip through if not properly handled. When queried about customer records, the LLM revealed sensitive information due to lack of proper output filtering."
           - text: "According to Wilson's research in Chapter 5, sensitive information disclosure is a significant risk in LLM applications, often leading to serious data breaches."
           - text: "Let's address this immediately. Below is a redaction pattern designed to catch common types of sensitive data:"
