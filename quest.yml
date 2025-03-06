@@ -27,8 +27,8 @@ steps:
   - rbac_code
   - open_question_roles_explanation
   - logging_and_monitoring_code
-  - output_filtering_code
   - redact_sensitive_data_code
+  - output_filtering_code
   - final_quiz_security_concepts
   - summary_security_measures
 type: MODULE

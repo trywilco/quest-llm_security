@@ -10,7 +10,7 @@ startFlow:
       params:
         person: lucca
         messages:
-          - text: Let's start by implementing input validation to prevent injection
+          - text: Let's start by implementing input validation to prevent potential injection
               attacks—a critical safeguard for your LLM application.
           - text: According to Wilson in Chapter 5, strict criteria for inputs are essential
               to prevent SQL injection attacks.

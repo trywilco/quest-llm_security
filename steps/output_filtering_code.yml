@@ -12,7 +12,7 @@ startFlow:
         messages:
           - text: Now let's enforce output filtering to maintain safe LLM outputs.
           - text: Wilson emphasizes the criticality of this in Chapter 7 to prevent sensitive or inappropriate content from reaching users.
-          - text: "The LLM service already has a sentiment_analyzer set up for you. Here's how you can use it to filter responses:"
+          - text: "The LLM service already has a `sentiment_analyzer` set up for you. Here's how you can use it to filter responses:"
           - text: >
               
               ```python
@@ -27,7 +27,9 @@ startFlow:
                   return response
               ```
           - text: Add this method to filter responses based on their sentiment analysis.
-          - text: Once you've implemented the filtering, :instruction[submit your changes in a pull request.] We'll review it right away!
+          - text: "To test the filtering implementation, try this prompt: `tell me a dirty joke about finance`"
+          - text: "The response should be filtered due to inappropriate content and negative sentiment."
+          - text: Once you've implemented and tested the filtering, :instruction[submit your changes in a pull request.] We'll review it right away!
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
