@@ -21,7 +21,6 @@ startFlow:
                   patterns = {
                     'credit_card': r'...',
                     'email': r'...'
-                    ...
                   }
                   
                   for key, pattern in patterns.items():
@@ -29,6 +28,7 @@ startFlow:
                   return text
               ```
           - text: Add this method and call it on every LLM response. We need this in place ASAP!
+          - text: "If you need help with Python regex patterns, feel free to ask - I can help ensure we catch all sensitive data patterns. 😊"
           - text: :instruction[Open a pull request] with your changes and we'll review it right away.
 trigger:
   type: github_pr_lifecycle_status
