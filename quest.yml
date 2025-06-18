@@ -24,8 +24,8 @@ steps:
   - intro_to_llm_security
   - explain_app_overview
   - input_validation_code
-  - rbac_code
-  - open_question_roles_explanation
+  - rate_limit_code
+  - open_question_unsafe_training_data
   - logging_and_monitoring_code
   - redact_sensitive_data_code
   - output_filtering_code
