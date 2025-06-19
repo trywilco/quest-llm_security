@@ -18,7 +18,7 @@ By the end of this quest, you'll possess a comprehensive toolkit to fortify LLM-
 
 - Understand the importance and challenges of securing LLMs
 - Implement input validation to prevent injection attacks
-- Set up role-based access control (RBAC) for sensitive operations
+- Set up rate limiting to prevent DoS and DoW attacks
 - Create comprehensive logging and monitoring systems
 - Implement data redaction for sensitive information
 - Apply output filtering to prevent harmful content
@@ -102,22 +102,37 @@ _Reference: Chapter 5 & Chapter 9 of Wilson's Playbook_
 
 ---
 
-### 4. Role-Based Access Control (RBAC) 👥
+### 4. Rate Limiting Implementation ⏱️
 
-**Learning Objective:** Implement RBAC to control access to sensitive operations
+**Learning Objective:** Implement rate limiting to prevent DoS and DoW attacks on LLM applications
 
-Set up sophisticated access control mechanisms:
+Protect your LLM application from resource exhaustion attacks:
 
-- User role definitions
-- Permission-based resource access
-- Secure endpoint protection
-- Authorization middleware
+```python
+from slowapi import Limiter, _rate_limit_exceeded_handler
 
-**Security Layers:**
+@limiter.limit("10/minute")
+async def llm_endpoint():
+    # Your LLM processing logic
+    pass
+```
 
-- Authentication verification
-- Role-based permissions
-- Resource-level access control
+**Key Protection Areas:**
+
+- Denial of Service (DoS) attack prevention
+- Denial of Wallet (DoW) attack mitigation
+- Resource exhaustion protection
+- API endpoint throttling
+- Scarce resource management
+
+**Why Rate Limiting Matters for LLMs:**
+
+- LLMs require significant computational resources
+- Pay-per-use models make DoW attacks particularly dangerous
+- Attackers can overwhelm systems with minimal effort
+- Context window exhaustion vulnerabilities
+
+_Reference: Chapter 8 of Wilson's Playbook_
 
 ---
 
@@ -226,7 +241,7 @@ _Reference: Chapter 7 & Chapter 8 of Wilson's Playbook_
 Celebrate your comprehensive security implementation:
 
 ✅ **Input Validation** - SQL injection prevention and input sanitization  
-✅ **Access Control** - Role-based security for sensitive operations  
+✅ **Rate Limiting** - DoS and DoW attack prevention for LLM resources  
 ✅ **Logging System** - Complete audit trail maintenance  
 ✅ **Output Filtering** - Sentiment analysis and harmful content prevention  
 ✅ **Data Redaction** - Pattern matching for sensitive information protection
