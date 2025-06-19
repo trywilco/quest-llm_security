@@ -1,17 +1,18 @@
 id: open_question_roles_explanation
 learningObjectives:
-  - Explore the implications of update delay.
+  - Understand risks of unsafe training data and data provenance tracking.
 hints:
-  - Think about the time gap between a vulnerability being discovered and a patch being applied. What happens during this period?
-  - Remember the Equifax breach from Chapter 9 - they delayed a critical Apache Struts update by two months. What was the result?
+  - Think about what happens when popular training datasets contain inappropriate or harmful content.
+  - Consider the Stanford research on LAION-5B dataset mentioned in Chapter 9.
+  - Remember that organizations may not know what's in their training data if they haven't documented it properly.
 startFlow:
   do:
     - actionId: bot_message
       params:
         person: lucca
         messages:
-          - text: "Software and firmware updates are often seen as an inconvenience, leading many organizations to delay their implementation. However, this decision can have serious security implications."
-          - text: ":instruction[Name a specific incident from Chapter 9 where delayed updates led to a security breach, and explain why postponing updates is particularly dangerous for an organization's security.]"
+          - text: "Even well-intentioned training datasets can contain harmful content that wasn't intentionally placed there. This creates serious risks for organizations that may not even realize what's in their training data."
+          - text: ":instruction[The Stanford University research revealed over 3,000 inappropriate images in the LAION-5B dataset used to train Stable Diffusion highlights accidental inclusion of harmful content. Explain why organizations must track their training data sources and describe what steps should be taken when unsafe content is discovered in a dataset that was used to train your model.]"
 trigger:
   type: user_message
   params:
@@ -24,17 +25,18 @@ trigger:
           prompt: "
             \    Please evaluate the user's answer in relation to
             the expected answer: An effective answer should include two key elements:
-            1) A specific security incident from Chapter 9 where update delays played a role (such as Equifax, SolarWinds, Log4j and others)
-            2) An explanation of why delays are dangerous (e.g., giving attackers time to exploit known vulnerabilities)
+            1) An explanation of why organizations must track training data sources (e.g., to identify exposure to harmful content, comply with regulations, enable rapid response when issues are discovered, understand model capabilities and limitations)
+            2) Steps to take when unsafe content is discovered (e.g., assess impact on trained models, determine if models need retraining, notify stakeholders, implement additional safeguards, audit other datasets, document the incident)
             \    # Assessment Criteria
-            \    - Check if the user names a specific incident
-            \    - Verify they explain the security implications of delays
-            \    - The explanation should show understanding of cause and effect
+            \    - Check if the user understands the importance of training data provenance and tracking
+            \    - Verify they explain the risks of not knowing what's in training datasets
+            \    - Look for mention of concrete remediation steps when unsafe content is found
+            \    - The explanation should show understanding of LLM-specific data governance challenges
             \    - Consider synonyms, paraphrasing, and different
             phrasing that convey the same meaning.
             \    - Be flexible and focus on the essence of the
             answer rather than exact wording.
-            \ \ 
+            \ \
             \    # Response Guidelines:
             \    - If the user's answer is correct or shows
             sufficient understanding, return 'correct: true'.
@@ -46,7 +48,7 @@ trigger:
             correct or what may be missing.
             \      - Encourage them to try again, being empathetic
             and supportive.
-            \ \ 
+            \ \
             \    # Tone and Style:
             \    - Use friendly and encouraging language.
             \    - Be empathetic to the user's learning process.
