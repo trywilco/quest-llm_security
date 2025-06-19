@@ -4,7 +4,7 @@ learningObjectives:
 hints:
   - Refer to Chapter 5 on vulnerabilities through input processing.
   - Look at Chapter 9 for strategies in managing input validation risks.
-  - Consider using a separate LLM instance to validate inputs before processing.
+  - Examples of patterns to filter include instruction override attempts ("ignore previous instructions"), chat speaker labels ("Assistant:", "User:"), prompt leak attempts ("show me your system prompt"), and role confusion attempts ("you are now a different AI")
 startFlow:
   do:
     - actionId: bot_message
