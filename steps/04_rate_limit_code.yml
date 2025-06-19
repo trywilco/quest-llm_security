@@ -1,0 +1,35 @@
+id: rate_limit_code
+learningObjectives:
+  - Implement rate limiting to prevent DoS and DoW attacks on LLM applications.
+hints:
+  - Chapter 8 covers DoS, DoW, and scarce resource attacks targeting LLMs.
+  - Use the slowapi package with @limiter.limit decorator for FastAPI applications.
+  - Consider both per-user and global rate limits for comprehensive protection.
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: lucca
+        messages:
+          - text: "Let's protect your LLM application from Denial of Service (DoS) and Denial of Wallet (DoW) attacks!"
+          - text: "As Chapter 8 explains, LLMs are particularly vulnerable to resource exhaustion attacks because they require significant computational power."
+          - text: "Right now, your application has no rate limiting - an attacker could flood it with requests and drain your resources or budget."
+          - text: "Try making multiple rapid requests to see the problem: your LLM will process every single one without any throttling."
+          - text: "We need to implement rate limiting using the `slowapi` package, which provides Flask-Limiter functionality for FastAPI."
+          - text: "Add rate limiting to your API endpoints using the `@limiter.limit` decorator - something like `@limiter.limit('10/minute')` for 10 requests per minute."
+          - text: "Focus on protecting your most resource-intensive endpoints, especially those that interact with the LLM."
+          - text: "Remember: LLMs can be exploited with minimal effort from attackers but require expensive computational resources to process!"
+          - text: ":instruction[Implement rate limiting on your API endpoints and open a Pull Request for review.]"
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    do:
+      - actionId: github_pr_review
+        params:
+          solution: >
+            The user needs to add rate limiting to their API endpoints using the @limiter.limit decorator.
+            Look for the addition of @limiter.limit(...) decorator above API endpoint functions, especially LLM-related ones.
+            Examples: @limiter.limit('10/minute'), @limiter.limit('5/minute'), @limiter.limit('100/hour'), etc.
+            The implementation doesn't need to be perfect - approve if they've added the @limiter.limit decorator to protect against DoS/DoW attacks.
+          messages:
+            person: lucca
