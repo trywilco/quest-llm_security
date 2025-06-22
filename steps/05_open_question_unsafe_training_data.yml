@@ -1,4 +1,4 @@
-id: open_question_roles_explanation
+id: open_question_unsafe_training_data
 learningObjectives:
   - Understand risks of unsafe training data and data provenance tracking.
 hints:

@@ -15,7 +15,7 @@ startFlow:
           - text: "As Chapter 8 explains, LLMs are particularly vulnerable to resource exhaustion attacks because they require significant computational power."
           - text: "Right now, your application has no rate limiting - an attacker could flood it with requests and drain your resources or budget."
           - text: "Try making multiple rapid requests to see the problem: your LLM will process every single one without any throttling."
-          - text: "We need to implement rate limiting using the `slowapi` package, which provides Flask-Limiter functionality for FastAPI."
+          - text: "In order to implement rate limiting let's use the `slowapi` package, which provides Flask-Limiter functionality for FastAPI."
           - text: "Add rate limiting to your API endpoints using the `@limiter.limit` decorator - something like `@limiter.limit('10/minute')` for 10 requests per minute."
           - text: "Focus on protecting your most resource-intensive endpoints, especially those that interact with the LLM."
           - text: "Remember: LLMs can be exploited with minimal effort from attackers but require expensive computational resources to process!"
@@ -33,3 +33,8 @@ trigger:
             The implementation doesn't need to be perfect - approve if they've added the @limiter.limit decorator to protect against DoS/DoW attacks.
           messages:
             person: lucca
+            approved: |
+             Nice work! Now you can merge it.
+             This will help prevent attackers from overwhelming your LLM application with requests.
+             As an added bonus, rate limiting can also help mitigate other attacks, such as Model Cloning, and even Prompt Injection.
+             `slowapi` is a great way to start, but for better protection, consider implementing a rate limiting mechanism with persitent memory.
