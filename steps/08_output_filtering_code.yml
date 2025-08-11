@@ -12,21 +12,19 @@ startFlow:
         messages:
           - text: Now let's enforce output filtering to maintain safe LLM outputs.
           - text: Wilson emphasizes the criticality of this in Chapter 7 to prevent sensitive or inappropriate content from reaching users.
-          - text: "The LLM service already has a `sentiment_analyzer` set up for you. Here's how you can use it to filter responses:"
+          - text: "Let's use TextBlob for sentiment analysis. It's lightweight and simple to use. Here's how you can filter responses with it:"
           - text: >
-              
               ```python
-
-
+              from textblob import TextBlob
+              
               def context_filter(self, response):
-                  """Analyze and filter response based on sentiment or keywords."""
-                  analysis = sentiment_analyzer(response)
-                  for result in analysis:
-                      if result['label'] == 'NEGATIVE' and result['score'] > 0.75:
-                          return "[Filtered due to negative sentiment]"
-                  return response
+                """Analyze and filter response based on sentiment polarity."""
+                polarity = TextBlob(response).sentiment.polarity
+                if polarity < -0.1:
+                  return "[Filtered due to negative sentiment]"
+                return response
               ```
-          - text: Add this method to filter responses based on their sentiment analysis.
+          - text: Add this method to filter responses based on their sentiment polarity using TextBlob.
           - text: "To test the filtering implementation, try this prompt: `tell me a dirty joke about finance`"
           - text: "The response should be filtered due to inappropriate content and negative sentiment."
           - text: Once you've implemented and tested the filtering, :instruction[submit your changes in a pull request.] We'll review it right away!
