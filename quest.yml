@@ -31,6 +31,7 @@ steps:
   - output_filtering_code
   - final_quiz_security_concepts
   - summary_security_measures
+  - get_nickname
 type: MODULE
 repository: https://github.com/trywilco/secure-info-concierge
 frameworks:
