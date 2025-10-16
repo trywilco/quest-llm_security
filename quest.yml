@@ -9,6 +9,7 @@ skills:
   - cybersecurity
 steps:
   - intro_to_llm_security
+  - codespace_start
   - explain_app_overview
   - input_validation_code
   - rate_limit_code
