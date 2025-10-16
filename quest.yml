@@ -8,6 +8,7 @@ skills:
   - application security
   - cybersecurity
 steps:
+  - get_nickname
   - intro_to_llm_security
   - codespace_start
   - explain_app_overview
@@ -19,7 +20,6 @@ steps:
   - output_filtering_code
   - final_quiz_security_concepts
   - summary_security_measures
-  - get_nickname
 type: MODULE
 repository: https://github.com/trywilco/secure-info-concierge
 frameworks:
