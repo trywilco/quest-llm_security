@@ -31,5 +31,5 @@ trigger:
       - actionId: update_user_props
         params:
           field: "nickname"
-          value: "${user.email}"
+          value: "Orielly User"
       - actionId: finish_step
