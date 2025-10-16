@@ -6,11 +6,7 @@ level: intermediate
 duration: 1
 skills:
   - application security
-  - large language models
-  - security protocols
-  - data protection
   - cybersecurity
-  - fastapi
 steps:
   - intro_to_llm_security
   - explain_app_overview
