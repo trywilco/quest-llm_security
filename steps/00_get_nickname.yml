@@ -1,0 +1,18 @@
+id: get_nickname
+learningObjectives:
+  - Set your nickname
+hints: []
+startFlow:
+  do:
+    - actionId: update_user_props
+      params:
+        field: "nickname"
+        value: "Orielly User"
+    - actionId: finish_step
+trigger:
+  type: user_message
+  params:
+    person: lucca
+  flowNode:
+    do:
+      - actionId: finish_step
